@@ -358,7 +358,14 @@ const phoneSmsMethod = {
         if (!v.ok || !d.token) return { type: "failed", error: `登录失败: ${d.msg ?? `HTTP ${v.status}`}` };
         return {
           type: "success",
-          access: d.token, // the session token: long-lived, JWTs are minted from it
+          // The host only persists an OAuth sign-in when it carries a
+          // refresh token (host.js save(): no refresh and no key means
+          // nothing is stored, yet the sign-in still reads "done" — the
+          // exact "signed in, but magpie can't list it" banner). Today's
+          // session token IS the long-lived credential JWTs are minted
+          // from, so it plays both roles here.
+          access: d.token,
+          refresh: d.token,
           deviceId,
           accountId: d.user?.nickname ?? phone,
           uid: d.user?.id != null ? String(d.user.id) : undefined,
