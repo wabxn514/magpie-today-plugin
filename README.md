@@ -1,0 +1,1 @@
+# magpie-today-plugin
