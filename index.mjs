@@ -1,6 +1,6 @@
 // magpie provider plugin: Today.app — DeepSeek V4.1 Flash / GLM 5.3
 //
-// Scaffold v0.1.0. Protocol ported from Main8986/today-proxy (core.py,
+// v0.1.1. Protocol ported from Main8986/today-proxy (core.py,
 // server.py): the Today app's internal API, translated into OpenAI chat
 // completions. Unlike the Python service, this runs inside magpie: no
 // separate process, no port, no AUTH_TOKENS file.
